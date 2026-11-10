@@ -1,6 +1,7 @@
 :root {
     --background: #292929;
     --primary-color: #283eb6;
+    --secondary-color: #272525;
     --text: #f3ecec;
 
     --body-font: 'Lato', sans-serif;
@@ -12,6 +13,7 @@ body {
     box-sizing: border-box;
     background: var(--background);
     color: var(--text);
+    font-family: var(--body-font);
 }
 
 header {
@@ -22,7 +24,7 @@ header {
     height: clamp(fit-content, 10vh, 4rem);
     
     
-    background-color:#272525;
+    background-color:var(--secondary-color);
     color: var(--primary-color);
 }
 
@@ -33,7 +35,18 @@ label {
 
 input {
     margin-right: auto;
-    width: 80%;
+    width: 78%;
+
+    background: var(--text);
+
+    border: none;
+    border-radius: 3px;
+    
+    outline: none;
+}
+
+input:focus-visible {
+    outline: 2px solid var(--primary-color);
 }
 .title {
     margin: 0;
@@ -47,6 +60,13 @@ input {
     font-size:clamp(.5rem, 1rem, 1.5rem);
 }
 
+.explanation {
+    margin: auto;
+    padding: 1rem 0 0 0;
+    font-size:clamp(0.5rem, 0.3rem 
+    + 2vw, 1rem);
+    text-align: center;
+}
 .main-hero {
     display: flex;
     flex-flow:column nowrap;
@@ -59,7 +79,7 @@ input {
     margin-top: 2rem;
     padding: 2rem;
 
-    background: #272525;
+    background: var(--secondary-color);
     border-radius: 16px;
 
 }
@@ -68,8 +88,55 @@ input {
     margin-top: clamp(1rem, 5vh, 2rem);
     background: var(--primary-color);
 
-    width: 30%;
+    width: clamp(4rem, 30%, 8rem);
     height: clamp(1.2rem, 8vh, 3rem);
-   margin-right: auto;
-   margin-top: clamp(1.2rem, 1.5rem, 2rem);
+
+    margin-right: auto;
+    margin-top: clamp(1.2rem, 1.5rem, 2rem);
+
+    font-weight: 600;
+    font-size: clamp(0.5rem, 1vw + 0.5rem, 0.9rem);
+
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 3px blue;
+
+    transition: 0.3s ease;
+}
+
+#submit:hover,
+#submit:focus-visible  {
+    transform: translate(2px, 3px);
+
+    box-shadow: 0px 0px blue;
+    outline: 0;
+}
+
+.result-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    width: 60%;
+    margin: auto;
+    margin-top: 1.5rem;
+}
+
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: clamp(2rem, 40%, 6rem);
+    min-height: clamp(3rem, 12vh, 7rem);
+    width: fit-content;
+    max-width: 100%;
+
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 6px;
+}
+
+#result {
+    margin: 0;
+    overflow-wrap: break-word;
 }
