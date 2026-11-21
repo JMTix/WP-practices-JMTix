@@ -1,0 +1,111 @@
+:root {
+
+  --color-bg-primary: #F5EBDC;
+  --color-bg-secondary: #FFF8EE;
+  --color-accent-primary: #C0392B;
+  --color-accent-secondary: #7B1E1E;
+  --color-accent-soft: #E57373;
+  --color-surface-alt: #E8D5B7;
+  --color-text-main: #3B2A24;
+  --color-border: #E8D5B7;
+
+  --font-main: 'Roboto', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
+
+  font-family: var(--font-main);
+}
+
+/*Misc*/
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+
+  margin-right: auto;
+}
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+
+  justify-content: center;
+  height: clamp(4.5rem, fit-content, 7rem);
+  width: 100%;
+
+ 
+  background-color: var(--color-bg-secondary);
+
+
+}
+
+#recipe-book {
+  width: clamp(3.5rem, 4rem, 5rem);
+  height: 6vh;
+
+  align-self: center;
+  margin-left: auto;
+  margin-right: 0.6rem;
+
+  background-color: var(--color-accent-primary);
+  border: 3px solid var(--color-accent-border);
+  border-radius: 3px;
+
+  font-weight: 400;
+  
+  transition: all 0.3s;
+}
+
+#recipe-book:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--color-accent-soft);
+  
+}
+
+.hero-section {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.8rem;
+
+  padding: 2.7rem 0;
+}
+
+.subtitle {
+  margin: 0;
+  line-height: 1;
+
+  width: 45%;
+  font-size: clamp(0.7rem, 1.5rem, 2.5rem);
+  font-weight: 600;
+}
+
+.subtitle-2 {
+  font-weight: 200;
+  width: 80%;
+}
+main {
+  display: flex;
+  flex-flow: column nowrap;
+
+  width: 70%;
+  margin: auto;
+
+  background-color: var(--color-bg-secondary);
+  border-radius: 3px;
+}
+
+.main-list {
+  height: 100%;
+}
+
+.recipe-object {
+
+}

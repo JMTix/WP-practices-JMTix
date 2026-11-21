@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Long Production Calculator</title>
+</head>
+
+<body>
+    <script src="src/main.js" defer></script>
+
+    <header>
+        <h1 class="title">Long production calculator</h1>
+
+        <button id="recipe-book">
+            Recipe Book
+        </button>
+    </header>
+
+    <section class="hero-section">
+
+        <p class="subtitle subtitle-1"> Know how much input you need to make materials</p>
+
+        <p class="subtitle subtitle-2">
+            Click the recipe book -> Choose recipe -> Multiply the minutes
+        </p>
+
+
+    </section>
+    <ul class="hidden" id="recipe-list">
+
+    </ul>
+
+    <main>
+        <section class="calculator-section">
+            <div class="main-list recipe-section">
+                <p class="recipe-text">Recipe</p>
+
+                <div class="recipe-object"></div>
+            </div>
+
+            <div class="main-list input-section">
+                <p class="input-text">Input</p>
+            </div>
+
+    </main>
+
+    <section class="result-section"></section>
+</body>
+
+</html>

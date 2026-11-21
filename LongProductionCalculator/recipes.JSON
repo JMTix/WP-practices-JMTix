@@ -1,0 +1,7 @@
+[
+  { "id": "iron-plate", "inputs": { "iron-ore": 2 }, "output": 1, "time": 3 },
+  { "id": "gear", "inputs": { "iron-plate": 2 }, "output": 1, "time": 1 },
+  { "id": "circuit", "inputs": { "iron-plate": 1, "copper-cable": 3 }, "output": 1, "time": 2 },
+  { "id": "copper-cable", "inputs": { "copper-plate": 1 }, "output": 2, "time": 1 },
+  { "id": "copper-plate", "inputs": { "copper-ore": 1 }, "output": 1, "time": 3 }
+]
