@@ -6,7 +6,7 @@
 // 3- Add a minute multiplier
 
 const recipeObject = document.querySelector(".recipe-object")
-const recipeList = document.querySelector("#recipe-list");
+const recipeList = document.querySelector(".recipe-list");
 const recipeBook = document.querySelector("#recipe-book");
 
 const overlay = document.querySelector(".overlay");
@@ -36,12 +36,17 @@ function fillRBook(json) {
 
 
 function choseRecipe(recipe) {
-   const object = document.querySelector(".recipe-object");
-
-   const objectText = document.querySelector(".recipe-placeholder");
-   objectText.textContent = recipe.id;
-
+    setRecipe(recipe);
     setInputs(recipe);
+    setTime(recipe);
+
+    recipeList.classList.add("hidden");
+    overlay.classList.remove("active");
+}
+
+function setRecipe(recipe) {
+    const objectText = document.querySelector(".recipe-placeholder");
+    objectText.textContent = recipe.id;
 }
 
 function setInputs(recipe) {
@@ -50,14 +55,25 @@ function setInputs(recipe) {
     input.textContent = Object.entries(recipe.inputs)
         .map(([name, amount]) => `${amount} x ${name}`)
         .join(", ");
+}
 
-    console.log(input.textContent);
+function setTime(recipe) {
+    const time = document.querySelector(".time-placeholder")
+    const timeBar = document.getElementById("bar");
+    const timeText = document.createElement("p");
+
+    timeText.textContent = `${recipe.time}s`;
+    timeText.classList.add("time-indicator");
+
+    timeBar.style.animationDuration = recipe.time + "s";
+
+    time.appendChild(timeText);
 }
 
 // Events
 if (recipeBook) {
     recipeBook.addEventListener("click", function() {
-        recipeList.classList.toggle("hidden");
+        recipeList.classList.remove("hidden");
         if (!recipeList.classList.contains("hidden")) {
              overlay.classList.add("active");
 
@@ -71,12 +87,14 @@ if (recipeBook) {
 overlay.addEventListener("click", function(event) {
     if (event.target === overlay) {
         overlay.classList.remove("active");
+        recipeList.classList.add("hidden");
     } 
 })
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     overlay.classList.remove("active");
+    recipeList.classList.add("hidden");
   }
 });
 
