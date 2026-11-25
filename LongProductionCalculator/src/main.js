@@ -4,15 +4,19 @@
 // 1- Asign every recipe, input and output to their asigned tile
 // 2- calculate how many of that material you can make per minute 
 // 3- Add a minute multiplier
+let recipes = [];
+let selectedRecipe = null;
 
 const recipeObject = document.querySelector(".recipe-object")
 const recipeList = document.querySelector(".recipe-list");
 const recipeBook = document.querySelector("#recipe-book");
 
 const overlay = document.querySelector(".overlay");
+const multiplierSection = document.getElementById("multiplier-section");
+const multiplierInput = document.getElementById("multiplier-input");
 
-async function loadRecipes(recipes) {
-    const response = await fetch("recipes.JSON");
+async function loadRecipes() {
+    const response = await fetch("recipes.json");
     recipes = await response.json();
 
     console.log(recipes);
@@ -36,11 +40,18 @@ function fillRBook(json) {
 
 
 function choseRecipe(recipe) {
+    selectedRecipe = recipe;
     setRecipe(recipe);
     setInputs(recipe);
     setTime(recipe);
+    
+    //TimeXMinute
+    const multiplierBox = document.querySelector(".box");
+    const formula = timeXminute(recipe)
+    multiplierBox.textContent = formula;
 
     recipeList.classList.add("hidden");
+    multiplierSection.classList.remove("hidden");
     overlay.classList.remove("active");
 }
 
@@ -60,7 +71,7 @@ function setInputs(recipe) {
 function setTime(recipe) {
     const time = document.querySelector(".time-placeholder")
     const timeBar = document.getElementById("bar");
-    const timeText = document.createElement("p");
+    const timeText = document.querySelector(".time-indicator");
 
     timeText.textContent = `${recipe.time}s`;
     timeText.classList.add("time-indicator");
@@ -68,6 +79,11 @@ function setTime(recipe) {
     timeBar.style.animationDuration = recipe.time + "s";
 
     time.appendChild(timeText);
+}
+
+function timeXminute(recipe) {
+    return String(60 / recipe.time);
+    
 }
 
 // Events
@@ -90,6 +106,21 @@ overlay.addEventListener("click", function(event) {
         recipeList.classList.add("hidden");
     } 
 })
+
+multiplierInput.addEventListener("keydown", function(event) {
+    if (['e', '-', '+'].includes(event.key)) {
+        event.preventDefault();
+    }
+})
+
+multiplierInput.addEventListener("input", function(event) {
+    const value = event.target.value;
+    const formula = value * timeXminute(selectedRecipe);
+    const resultBox = document.querySelector(".result");
+    
+    resultBox.textContent = String(formula);
+})
+
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {

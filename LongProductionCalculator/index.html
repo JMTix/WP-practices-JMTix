@@ -56,13 +56,33 @@
                 <p class="time-text">Time</p>
                 
                 <div class="time-placeholder">
-                    <div class="bar-bg"> <div class="bar" id="bar"></div></div>
+                    <div class="bar-bg">
+                         <div class="bar" id="bar"></div>
+                    </div>
+                    <p class="time-indicator"></p>
                 </div>
             </div>
-    </main>
 
-    <section class="result-section"></section>
+             <section class="result-section">
+                <div class="result-placeholder"></div>
+             </section>
+    </main> 
 
+    <section class="multiplier-section hidden" id="multiplier-section">
+        <div class="time-multiplier multiplier">
+            <p class="time-result">Time per minute</p>
+            <div class="box"></div>
+        </div>
+
+        <p class="multiplier">X</p>
+
+        <div class="input-multiplier multiplier">
+            <p>Multipllier</p>
+            <input type="number" name="multipllier" id="multiplier-input">
+        </div>
+
+        <div class="result multiplier"></div>
+    </section>
     <!--Misc.-->
     
     <div class="overlay"></div>
